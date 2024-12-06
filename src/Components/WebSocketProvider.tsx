@@ -1,21 +1,11 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext } from "react"
 import { socketurl } from "./Context"
-import { useAuth } from "./useAuth"
 export const WebSocketContext = createContext<any>(null)
 export const WebSocketProvider=({children}:any)=>{
-    const [socket,setSocket]=useState<WebSocket|null>(null)
-    const auth=useAuth()
-    useEffect(()=>{
-        if(auth?.token){
-            const ws = new WebSocket(`${socketurl}`)
-          
-            setTimeout(()=>{setSocket(ws)},5000)
-              
-            
-        }
-    },[])
+    const ws = new WebSocket(`${socketurl}`)
+
     return (
-        <WebSocketContext.Provider value={socket}>
+        <WebSocketContext.Provider value={ws}>
           {children}
         </WebSocketContext.Provider>
     )

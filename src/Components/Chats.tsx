@@ -18,7 +18,7 @@ export const Chats=({roomId,username}:any)=>{
             }))
         }
         if (message.current){
-        const response=await axios.post(`${baseurl}/message`,{"roomId":roomId,
+        await axios.post(`${baseurl}/message`,{"roomId":roomId,
             "message":message.current?.value
         },{
             headers:{
@@ -26,7 +26,6 @@ export const Chats=({roomId,username}:any)=>{
             }
         })
 
-        console.log(response)
     }
     }
     return(

@@ -11,7 +11,6 @@ export const RoomAvailable = () => {
         token: localStorage.getItem("token"),
       },
     });
-    console.log(response.data);
     setRooms(response.data);
   }
   useEffect(() => {

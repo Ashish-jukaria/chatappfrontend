@@ -26,7 +26,6 @@ export const ChatRoom = () => {
   useEffect(()=>{
     if(ws){
       ws.onmessage = (event:any)=>{
-        console.log(event)
         const newmessage=JSON.parse(event.data)
         if (newmessage.type==="message"){
           setMessages((oldmessages:any)=>[...oldmessages,{user:newmessage.payload.user,message:newmessage.payload.message}])
