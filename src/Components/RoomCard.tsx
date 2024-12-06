@@ -19,10 +19,10 @@ export const RoomCard =({data}:any)=>{
 
   } 
     const room_detail:any=data.map((room:any)=>{
-        return <div className=" p-5 text-center m-10 w-full border-2 border-black" key={room._id}>
+        return <div className=" p-5 text-center m-10 w-full border-2 border-black h-3/4 " key={room._id}>
           
            <div>
-              <span className="text-xl font-bold p-2"> {room.roomName}</span>
+              <span className="block text-center justify-center text-xl font-bold p-2 overflow-wrap break-words"> {room.roomName}</span>
            </div>
           
    

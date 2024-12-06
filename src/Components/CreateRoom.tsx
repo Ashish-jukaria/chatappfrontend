@@ -33,7 +33,7 @@ export const CreateRoom =()=>{
     return <>
     <div className="flex justify-center items-center h-1/2">
 
-        <input  className="border-black border-2 m-2 p-2" type='text' placeholder="enter room Name" ref={roomname}/>
+        <input  maxLength={30} className="border-black border-2 m-2 p-2" type='text' placeholder="enter room Name" ref={roomname}/>
         <button className="bg-blue-700 p-2 text-white hover:bg-blue-600" onClick={handleClick}>Make Room</button>
      </div>
 
