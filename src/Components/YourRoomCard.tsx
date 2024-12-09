@@ -1,5 +1,6 @@
 import { useSocket } from "./useSocket";
 import { useNavigate } from "react-router-dom";
+import { motion } from "motion/react";
 
 export const YourRoomCard = ({ room }: any) => {
   const ws = useSocket();
@@ -26,17 +27,32 @@ export const YourRoomCard = ({ room }: any) => {
       navigator.clipboard.writeText(roomId);
     }
     return (
-      <div
+      <motion.div
+      initial={{
+        opacity:0,
+        scale:0
+      }}
+      animate={{
+        opacity:1,
+        scale:1,
+        transition:{
+          duration:1
+        }
+      }}
         key={index}
-        className="flex flex-col items-center p-4 border-black border-2 hover:shadow-lg hover:shadow-black cursor-pointer"
+        className="flex flex-col items-center p-4 border-black border-2 shadow-md shadow-black cursor-pointer"
       >
-        <div className="text-xl font-bold">{rm.roomName}</div>
-        <div className="font-bold">{rm.private ? "Private" : "Public"}</div>
+        <div className="text-xl font-bold text-[#EF8354] p-2">{rm.roomName}</div>
+        {
+          rm.private? <div className="font-bold bg-red-900 p-2 text-white">Private</div>:<div className="font-bold bg-green-900 text-white p-2">Public</div>
+
+
+        }
 
         <div className="font-mono">{rm.roomId}</div>
         <div>
           <button
-            className="bg-blue-600 py-1 px-4 m-2 hover:bg-blue-500"
+            className="bg-[#292F36] p-2 text-[10px] m-2 hover:bg-[#414244] text-white"
             onClick={() => handleCopy(rm.roomId)}
           >
             Copy Code
@@ -44,13 +60,13 @@ export const YourRoomCard = ({ room }: any) => {
         </div>
         <div >
           <button
-            className="bg-blue-600 py-1 px-4 m-2 hover:bg-blue-500"
+            className="bg-[#292F36] p-2 font-bold text-lg hover:bg-[#414244] text-white"
             onClick={() => handleClick(rm.roomId)}
           >
             Join Room
           </button>
         </div>
-      </div>
+      </motion.div>
     );
   });
 

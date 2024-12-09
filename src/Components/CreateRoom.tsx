@@ -39,20 +39,20 @@ export const CreateRoom = () => {
 
     }
     return <>
-        <div className="flex flex-col justify-center items-center h-1/2">
-            <div>
+        <div className="flex flex-col justify-center items-center h-3/4 w-screen">
+            <div className=" flex items-center justify-center w-screen">
 
-                <input maxLength={30} className="border-black border-2 m-2 p-2" type='text' placeholder="enter room Name" ref={roomname} />
-                <button className="bg-blue-700 p-2 text-white hover:bg-blue-600" onClick={handleClick}>Make Room</button>
+                <input maxLength={30} className="border-black border-2 m-2 p-2 w-1/4" type='text' placeholder="enter room Name" ref={roomname} />
+                <button className="bg-[#292F36] p-2 text-white hover:bg-[#414244]" onClick={handleClick}>Make Room</button>
 
 
             </div>
             <div>
-                <input className="scale-x-150 px-4 mx-4" type="checkbox" onChange={() => setToggle(!toggle)} />
-                <label>Private Room</label>
+                <input className="scale-x-150 px-4 mx-4 accent-[#EF8354]" type="checkbox" onChange={() => setToggle(!toggle)} />
+                <label className="font-mono font-bold">Private Room</label>
             </div>
 
-            <div className="m-2 font-mono">
+            <div className="m-2 font-mono text-red-500">
                 Private Rooms are only accessible by Room Code!
             </div>
 

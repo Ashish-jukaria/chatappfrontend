@@ -23,16 +23,15 @@ export const JoinRoom = () => {
 
     }
     return (
-        <>
-            <div className="flex justify-center align-center  my-60">
-                <div >
+            <div className="flex justify-center align-center  items-center h-3/4">
+                <div className=" flex w-screen items-center justify-center" >
 
-                    <input className=" border-black border-2 m-2 p-2" type="text" placeholder="enter room code" ref={roomId} />
-                    <button className=" bg-blue-600 py-2 px-4  hover:bg-blue-500" onClick={handleClick}>Join</button>
+                    <input className=" border-black border-2 m-2 p-2 w-1/4" type="text" placeholder="enter room code" ref={roomId} />
+                    <button className=" text-white bg-[#292F36] py-2 px-4  hover:bg-[#414244]" onClick={handleClick}>Join</button>
 
                 </div>
             
             </div>
 
-        </>)
+   )
 }

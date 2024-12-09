@@ -20,7 +20,7 @@ export const Login=()=>{
         <div className="flex flex-col justify-center align-middle items-center h-2/3">
         <input ref={username} type='text' placeholder="username" className="m-2 border-black border-2 w-1/4 p-2"/>
         <input ref={password} type='password' placeholder="password"  className="m-2 border-black border-2 w-1/4 p-2"/>
-        <button className="m-2 bg-blue-700 text-white w-1/4 py-2 hover:bg-blue-600" onClick={handleClick}>Login</button>
+        <button className="m-2 bg-[#292F36] text-white w-1/4 py-2 hover:bg-[#414244]" onClick={handleClick}>Login</button>
         </div>
         </>
     )
