@@ -67,7 +67,12 @@ export const ChatRoom = () => {
         <div className="flex flex-col items-center">
           <div className="font-bold font-mono text-2xl " >{data.roomName}</div>
 
-
+          <div className="font-mono">
+            {data.roomId}
+          </div>
+          <div className="bg-blue-800 text-white py-2 px-4 hover:bg-blue-900">
+            <button onClick={()=>{navigator.clipboard.writeText(data.roomId)}}>Copy Code</button>
+          </div>
 
           <div   className="max-h-[500px] w-screen  overflow-y-scroll p-10 no-scrollbar " ref={scrollref}>
           {messages.map((chat:any,index:any)=>{

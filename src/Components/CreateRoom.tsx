@@ -10,6 +10,7 @@ export const CreateRoom = () => {
     const ws = useSocket()
     const roomname = useRef<HTMLInputElement | null>(null)
     async function handleClick() {
+    
         if (roomname.current) {
             const response = await axios.post(`${baseurl}/createroom`, { "roomName": roomname.current.value, "private": toggle }, {
                 headers: {
@@ -28,8 +29,14 @@ export const CreateRoom = () => {
 
                 }))
             }
+            navigate('/chatroom', {
+                state: {
+                    roomId: response.data
+                }
+            })
         }
-        navigate('/dashboard')
+
+
     }
     return <>
         <div className="flex flex-col justify-center items-center h-1/2">
@@ -46,10 +53,7 @@ export const CreateRoom = () => {
             </div>
 
             <div className="m-2 font-mono">
-                Go to Your Rooms to get Room Code For Your Private Rooms 
-
-                <br />
-                Private Rooms are only accessible by Room Code
+                Private Rooms are only accessible by Room Code!
             </div>
 
         </div>
