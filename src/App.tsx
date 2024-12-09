@@ -11,6 +11,8 @@ import { Home } from './Components/Home'
 import { ChatRoom } from './Components/ChatRoom'
 import { WebSocketProvider } from './Components/WebSocketProvider'
 import { CreateRoom } from './Components/CreateRoom'
+import { YourRooms } from './Components/YourRooms'
+import { JoinRoom } from './Components/JoinRoom'
 
 function App() {
 
@@ -30,7 +32,9 @@ function App() {
       <Route path='/dashboard' element={<Dashboard/>} />
       <Route path='/chatroom' element={<ChatRoom/>}/>
       <Route path='/createroom' element={<CreateRoom/>}/>
-          
+      <Route path='/yourroom' element={<YourRooms/>}/>
+
+      <Route path='/joinrooms' element={<JoinRoom/>}/>
       </Route>
 
     </Routes>

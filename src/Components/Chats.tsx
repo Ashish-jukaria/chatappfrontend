@@ -27,7 +27,11 @@ export const Chats=({roomId,username}:any)=>{
             }
         })
 
-    }}
+    }
+    if (message.current) {
+        message.current.value = '';
+      }
+}
     }
     async function handleClick(){
         if(ws && message.current){
@@ -50,6 +54,9 @@ export const Chats=({roomId,username}:any)=>{
         })
 
     }
+    if (message.current) {
+        message.current.value = "";
+      }
     }
     return(
         <>

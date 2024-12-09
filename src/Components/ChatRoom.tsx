@@ -1,11 +1,12 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { baseurl } from "./Context";
 import { useLocation } from "react-router-dom";
 import { useSocket } from "./useSocket";
 import { Chats } from "./Chats";
 
 export const ChatRoom = () => {
+  const scrollref=useRef<HTMLInputElement|null>(null)
   const [username,setUser]=useState('')
   const [messages,setMessages]=useState<any>([])
   const [data, setData] = useState<any>(null);
@@ -34,6 +35,13 @@ export const ChatRoom = () => {
     }
   },[ws])
 
+  useEffect(()=>{
+    if (scrollref.current){
+      scrollref.current.scrollTop=(scrollref.current.scrollHeight-scrollref.current.clientHeight)
+
+    }
+  },[messages])
+
   async function getUser(){
     const response=await axios.get(`${baseurl}/userdata`,{
       headers:{
@@ -59,11 +67,13 @@ export const ChatRoom = () => {
         <div className="flex flex-col items-center">
           <div className="font-bold font-mono text-2xl " >{data.roomName}</div>
 
-          <div   className="max-h-[500px] w-screen  overflow-auto p-10">
+
+
+          <div   className="max-h-[500px] w-screen  overflow-y-scroll p-10 no-scrollbar " ref={scrollref}>
           {messages.map((chat:any,index:any)=>{
             return(
               <div key={index}>
-              <div className="border-black border-b-2 p-5 "><span className="font-bold font-mono">{chat.user} :</span> <span>{chat.message}</span></div>
+              <div className="border-black border-b-2 p-5 overflow-wrap break-words"><span className="font-bold font-mono">{chat.user} :</span> <span>{chat.message}</span></div>
               </div>
             )
           })}
